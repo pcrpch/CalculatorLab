@@ -196,5 +196,10 @@ namespace CPE200Lab1
                 }
             }
         }
+
+        private void btnMemory_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
