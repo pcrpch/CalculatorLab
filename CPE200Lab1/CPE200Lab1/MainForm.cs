@@ -18,6 +18,7 @@ namespace CPE200Lab1
         private bool isAfterEqual;
         private string firstOperand;
         private string secondOperand;
+        private string memory;
         private string operatePercent;
         private string operate;
         public CalculatorEngine engine;
@@ -199,7 +200,16 @@ namespace CPE200Lab1
 
         private void btnMemory_Click(object sender, EventArgs e)
         {
-
+            
+            if(((Button)sender).Text != "MR")
+            {
+                memory = engine.calculate(((Button)sender).Text, lblDisplay.Text, memory, operatePercent, 8);
+                isAfterOperater = true;
+            }
+            else
+            {
+                lblDisplay.Text = lblDisplay.Text = memory;
+            }
         }
     }
 }

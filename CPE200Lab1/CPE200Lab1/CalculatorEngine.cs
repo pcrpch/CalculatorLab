@@ -59,7 +59,7 @@ namespace CPE200Lab1
                     break;
                 case "√":
                     return ((float)Math.Sqrt(Convert.ToDouble(firstOperand))).ToString();
-                    
+
                 case "1/X":
                     result = (1 / Convert.ToDouble(firstOperand));
                     parts = result.ToString().Split('.');
@@ -69,7 +69,15 @@ namespace CPE200Lab1
                     }
                     remainLength = maxOutputSize - parts[0].Length - 1;
                     return result.ToString("N" + remainLength);
-                    
+                case "M+":
+                    return (Convert.ToDouble(firstOperand) + Convert.ToDouble(secondOperand)).ToString();
+                case "M-":
+                    return (Convert.ToDouble(firstOperand) - Convert.ToDouble(secondOperand)).ToString();
+                case "MC":
+                    return "0";
+                case "MS":
+                    return firstOperand;
+
             }
             return "E";
         }
