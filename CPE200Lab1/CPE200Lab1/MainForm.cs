@@ -204,7 +204,7 @@ namespace CPE200Lab1
             if(((Button)sender).Text != "MR")
             {
                 memory = engine.calculate(((Button)sender).Text, lblDisplay.Text, memory, operatePercent, 8);
-                //isAfterOperater = true;
+                isAfterOperater = true;
             }
             else
             {
