@@ -72,7 +72,7 @@ namespace CPE200Lab1
                 case "M+":
                     return (Convert.ToDouble(firstOperand) + Convert.ToDouble(secondOperand)).ToString();
                 case "M-":
-                    return (Convert.ToDouble(firstOperand) - Convert.ToDouble(secondOperand)).ToString();
+                    return (Convert.ToDouble(secondOperand) - Convert.ToDouble(firstOperand)).ToString();
                 case "MC":
                     return "0";
                 case "MS":
