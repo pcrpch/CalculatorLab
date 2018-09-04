@@ -12,11 +12,11 @@ namespace CPE200Lab1
         {
             Stack<string> data = new Stack<string>();
             string[] parts = str.Split(' ');
-            if(parts.Length == 1)
+            if (parts.Length == 1)
             {
                 return "E";
             }
-            for(int i = 0; i < parts.Length; i++)
+            for (int i = 0; i < parts.Length; i++)
             {
                 if (isNumber(parts[i]))
                 {
