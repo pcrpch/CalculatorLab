@@ -17,6 +17,7 @@ namespace CPE200Lab1
         private bool isSpaceAllowed = false;
         private RPNCalculatorEngine RPNengine;
         private CalculatorEngine engine;
+        private string memory;
 
         public ExtendForm()
         {
@@ -32,11 +33,12 @@ namespace CPE200Lab1
                 case '-':
                 case 'X':
                 case '÷':
+                case '%':
                     return true;
             }
             return false;
         }
-
+        
         private void btnNumber_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")
@@ -178,5 +180,20 @@ namespace CPE200Lab1
                 isSpaceAllowed = false;
             }
         }
+        private void btnMemory_Click(object sender, EventArgs e)
+        {
+
+            if (((Button)sender).Text != "MR")
+            {
+                memory = engine.calculate(((Button)sender).Text, lblDisplay.Text, memory);
+            }
+            else
+            {
+                lblDisplay.Text = lblDisplay.Text = memory;
+            }
+        }
+
+    
+
     }
 }

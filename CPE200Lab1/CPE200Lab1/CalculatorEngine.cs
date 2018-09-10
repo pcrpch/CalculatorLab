@@ -21,11 +21,21 @@ namespace CPE200Lab1
                 case "-":
                 case "X":
                 case "÷":
+                case "%":
                     return true;
             }
             return false;
         }
-
+        public bool isUnaryOperator(string str)
+        {
+            switch (str)
+            {
+                case "1/x":
+                case "√":
+                    return true;
+            }
+            return false;
+        }
         public string Process(string str)
         {
             string[] parts = str.Split(' ');
@@ -122,8 +132,15 @@ namespace CPE200Lab1
                     }
                     break;
                 case "%":
-                    //your code here
-                    break;
+                    return (Convert.ToDouble(firstOperand) * Convert.ToDouble(secondOperand)/100).ToString();
+                case "M+":
+                    return (Convert.ToDouble(firstOperand) + Convert.ToDouble(secondOperand)).ToString();
+                case "M-":
+                    return (Convert.ToDouble(secondOperand) - Convert.ToDouble(firstOperand)).ToString();
+                case "MC":
+                    return "0";
+                case "MS":
+                    return firstOperand;
             }
             return "E";
         }

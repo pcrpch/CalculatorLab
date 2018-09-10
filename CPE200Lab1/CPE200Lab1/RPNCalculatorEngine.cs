@@ -12,6 +12,8 @@ namespace CPE200Lab1
         {
             Stack<string> data = new Stack<string>();
             string[] parts = str.Split(' ');
+            string second = string.Empty;
+            string first = string.Empty;
             if (parts.Length == 1)
             {
                 return "E";
@@ -22,15 +24,22 @@ namespace CPE200Lab1
                 {
                     data.Push(parts[i]);
                 }
+                else if (isUnaryOperator(parts[i]))
+                {
+                    first = data.Peek();
+                    data.Pop();
+                    data.Push(unaryCalculate(parts[i], first));
+                }
                 else if (isOperator(parts[i]))
                 {
                     if (data.Count >= 2)
                     {
-                        string second = data.Peek();
-                        data.Pop();
-                        string first = data.Peek();
-                        data.Pop();
-                        data.Push(calculate(parts[i], first, second, 8));
+                            second = data.Peek();
+                            data.Pop();
+                            first = data.Peek();
+                            data.Pop();
+                            data.Push(calculate(parts[i], first, second, 8));
+                            
                     }
                     else
                     {
@@ -40,7 +49,7 @@ namespace CPE200Lab1
                 }
             }
             // your code here
-            if(data.Count > 1)
+            if (data.Count > 1)
             {
                 return "E";
             }

@@ -18,6 +18,7 @@ namespace CPE200Lab1
         private bool isAfterEqual;
         private string firstOperand;
         private string operate;
+        private string operate_percent;
         private double memory;
         private CalculatorEngine engine;
 
@@ -79,6 +80,7 @@ namespace CPE200Lab1
             {
                 return;
             }
+
             operate = ((Button)sender).Text;
             firstOperand = lblDisplay.Text;
             string result = engine.unaryCalculate(operate, firstOperand);
@@ -106,7 +108,7 @@ namespace CPE200Lab1
             if(firstOperand != null)
             {
                 string secondOperand = lblDisplay.Text;
-                string result = engine.calculate(operate, firstOperand, secondOperand);
+                string result = engine.calculate(operate, firstOperand, secondOperand, 8);
                 if (result is "E" || result.Length > 8)
                 {
                     lblDisplay.Text = "Error";
@@ -116,6 +118,7 @@ namespace CPE200Lab1
                     lblDisplay.Text = result;
                 }
             }
+            operate_percent = operate;
             operate = ((Button)sender).Text;
             switch (operate)
             {
@@ -127,6 +130,7 @@ namespace CPE200Lab1
                     isAfterOperater = true;
                     break;
                 case "%":
+                    isAfterOperater = true;
                     // your code here
                     break;
             }
@@ -140,7 +144,7 @@ namespace CPE200Lab1
                 return;
             }
             string secondOperand = lblDisplay.Text;
-            string result = engine.calculate(operate, firstOperand, secondOperand);
+            string result = engine.calculate(operate, firstOperand, secondOperand, 8);
             if (result is "E" || result.Length > 8)
             {
                 lblDisplay.Text = "Error";
