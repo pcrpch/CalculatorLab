@@ -26,6 +26,16 @@ namespace CPE200Lab1
             }
             return false;
         }
+        public bool isPercent(string str)
+        {
+            switch (str)
+            {
+                case "%":
+                    return true;
+            }
+            return false;
+        }
+
         public bool isUnaryOperator(string str)
         {
             switch (str)
@@ -57,7 +67,10 @@ namespace CPE200Lab1
                         double result;
                         string[] parts;
                         int remainLength;
-
+                        if (Convert.ToDouble(operand) < 0)
+                        {
+                            return "E";
+                        }
                         result = Math.Sqrt(Convert.ToDouble(operand));
                         // split between integer part and fractional part
                         parts = result.ToString().Split('.');
@@ -97,8 +110,8 @@ namespace CPE200Lab1
             }
             return "E";
         }
-
-        public string calculate(string operate, string firstOperand, string secondOperand, int maxOutputSize = 8)
+        
+        public string calculate(string operate, string firstOperand, string secondOperand, int maxOutputSize = 8, string operatorPercent = null)
         {
             switch (operate)
             {
@@ -132,7 +145,7 @@ namespace CPE200Lab1
                     }
                     break;
                 case "%":
-                    return (Convert.ToDouble(firstOperand) * Convert.ToDouble(secondOperand)/100).ToString();
+                    return (Convert.ToDouble(firstOperand) * Convert.ToDouble(secondOperand) * 0.01).ToString();
                 case "M+":
                     return (Convert.ToDouble(firstOperand) + Convert.ToDouble(secondOperand)).ToString();
                 case "M-":

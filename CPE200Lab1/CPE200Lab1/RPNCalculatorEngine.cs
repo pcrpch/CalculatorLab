@@ -14,6 +14,7 @@ namespace CPE200Lab1
             string[] parts = str.Split(' ');
             string second = string.Empty;
             string first = string.Empty;
+            string[] temp = { string.Empty, string.Empty, string.Empty };
             if (parts.Length == 1)
             {
                 return "E";
@@ -34,18 +35,21 @@ namespace CPE200Lab1
                 {
                     if (data.Count >= 2)
                     {
-                            second = data.Peek();
+                        second = data.Peek();
+                        data.Pop();
+                        first = data.Peek();
+                        if(parts[i] != "%")
+                        {
                             data.Pop();
-                            first = data.Peek();
-                            data.Pop();
-                            data.Push(calculate(parts[i], first, second, 8));
-                            
+                        }
+                        data.Push(calculate(parts[i], first, second));
+
                     }
                     else
                     {
                         return "E";
                     }
-                    
+
                 }
             }
             // your code here
