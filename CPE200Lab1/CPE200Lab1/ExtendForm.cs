@@ -34,6 +34,7 @@ namespace CPE200Lab1
                 case 'X':
                 case '÷':
                 case '%':
+                case '√':
                     return true;
             }
             return false;
@@ -73,7 +74,18 @@ namespace CPE200Lab1
                 isSpaceAllowed = false;
             }
         }
-
+        private void btnOneOverX_Click(object sender, EventArgs e)
+        {
+            if (lblDisplay.Text is "Error")
+            {
+                return;
+            }
+            isNumberPart = false;
+            isContainDot = false;
+            string current = lblDisplay.Text;       
+            lblDisplay.Text += " " + ((Button)sender).Text + " ";
+            isSpaceAllowed = false;
+        }
         private void btnBack_Click(object sender, EventArgs e)
         {
             if (lblDisplay.Text is "Error")

@@ -348,7 +348,7 @@
             this.button3.TabIndex = 44;
             this.button3.Text = "1/x";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.btnBinaryOperator_Click);
+            this.button3.Click += new System.EventHandler(this.btnOneOverX_Click);
             // 
             // button4
             // 

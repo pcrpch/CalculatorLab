@@ -33,23 +33,21 @@ namespace CPE200Lab1
                 }
                 else if (isOperator(parts[i]))
                 {
-                    if (data.Count >= 2)
+                    try
                     {
                         second = data.Peek();
                         data.Pop();
                         first = data.Peek();
-                        if(parts[i] != "%")
+                        if (parts[i] != "%")
                         {
                             data.Pop();
                         }
                         data.Push(calculate(parts[i], first, second));
-
                     }
-                    else
+                    catch
                     {
                         return "E";
                     }
-
                 }
             }
             // your code here
