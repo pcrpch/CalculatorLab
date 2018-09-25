@@ -8,6 +8,11 @@ namespace CPE200Lab1
 {
     public class RPNCalculatorEngine : CalculatorEngine
     {
+        /// <summary>
+        /// Split string from display to calculate and put into stack
+        /// </summary>
+        /// <param name="str">string from display</param>
+        /// <returns>result of calculator</returns>
         public string Process(string str)
         {
             Stack<string> data = new Stack<string>();

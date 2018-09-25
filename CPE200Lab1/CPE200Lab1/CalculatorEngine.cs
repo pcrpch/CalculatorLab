@@ -8,12 +8,21 @@ namespace CPE200Lab1
 {
     public class CalculatorEngine
     {
+        /// <summary>
+        ///  Check if input is a number
+        /// </summary>
+        /// <param name="str">Input is string that split from the display</param>
+        /// <returns>False if input is not a number otherwise True</returns>
         public bool isNumber(string str)
         {
             double retNum;
             return Double.TryParse(str, out retNum);
         }
-
+        /// <summary>
+        /// Check if input is a operator
+        /// </summary>
+        /// <param name="str">Input is string that split from the display</param>
+        /// <returns>False if input is not a operator otherwise True</returns>
         public bool isOperator(string str)
         {
             switch(str) {
@@ -26,7 +35,11 @@ namespace CPE200Lab1
             }
             return false;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str">Input is string that split from the display</param>
+        /// <returns>False if input is not a operator for one number otherwise True</returns>
         public bool isUnaryOperator(string str)
         {
             switch (str)
@@ -37,6 +50,11 @@ namespace CPE200Lab1
             }
             return false;
         }
+        /// <summary>
+        /// Split string from display to calculate
+        /// </summary>
+        /// <param name="str">string from display</param>
+        /// <returns>result of calculator</returns>
         public string Process(string str)
         {
             string[] parts = str.Split(' ');
@@ -50,6 +68,13 @@ namespace CPE200Lab1
                 return "E";
             }
         }
+        /// <summary>
+        /// Calculate one number with unaryoperator
+        /// </summary>
+        /// <param name="operate">Unaryoperator</param>
+        /// <param name="operand">Number</param>
+        /// <param name="maxOutputSize">Size of result</param>
+        /// <returns>result of calculate</returns>
         public string unaryCalculate(string operate, string operand, int maxOutputSize = 8)
         {
             switch (operate)
@@ -102,8 +127,15 @@ namespace CPE200Lab1
             }
             return "E";
         }
-        
-        public string calculate(string operate, string firstOperand, string secondOperand, int maxOutputSize = 8, string operatorPercent = null)
+        /// <summary>
+        /// Calculate two numbers with binary operator
+        /// </summary>
+        /// <param name="operate">operator</param>
+        /// <param name="firstOperand">First number</param>
+        /// <param name="secondOperand">Second Number</param>
+        /// <param name="maxOutputSize">Size of result</param>
+        /// <returns>result of calculate</returns>
+        public string calculate(string operate, string firstOperand, string secondOperand, int maxOutputSize = 8)
         {
             switch (operate)
             {
