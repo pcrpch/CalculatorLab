@@ -8,7 +8,8 @@ namespace CPE200Lab1
 {
     public class RPNCalculatorEngine : CalculatorEngine
     {
-        public string Process(string str)
+
+        public string calculate(string str)
         {
             Stack<string> data = new Stack<string>();
             string[] parts = str.Split(' ');
@@ -29,7 +30,7 @@ namespace CPE200Lab1
                 {
                     first = data.Peek();
                     data.Pop();
-                    data.Push(unaryCalculate(parts[i], first));
+                    data.Push(calculate(parts[i], first));
                 }
                 else if (isOperator(parts[i]))
                 {
@@ -38,7 +39,7 @@ namespace CPE200Lab1
                         second = data.Peek();
                         data.Pop();
                         first = data.Peek();
-                        if(parts[i] != "%")
+                        if (parts[i] != "%")
                         {
                             data.Pop();
                         }

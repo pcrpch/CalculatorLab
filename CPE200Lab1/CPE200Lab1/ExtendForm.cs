@@ -23,7 +23,7 @@ namespace CPE200Lab1
         {
             InitializeComponent();
             RPNengine = new RPNCalculatorEngine();
-            engine = new CalculatorEngine();
+            
         }
 
         private bool isOperator(char ch)
@@ -105,11 +105,11 @@ namespace CPE200Lab1
 
         private void btnEqual_Click(object sender, EventArgs e)
         {
-            string result = engine.Process(lblDisplay.Text);
+            string result = engine.calculate(lblDisplay.Text);
             if (result is "E")
             {
                 //lblDisplay.Text = "Error";
-                result = RPNengine.Process(lblDisplay.Text);
+                result = RPNengine.calculate(lblDisplay.Text);
                 if(result == "E")
                 {
                     lblDisplay.Text = "Error";
