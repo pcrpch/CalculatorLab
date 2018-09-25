@@ -9,7 +9,7 @@ namespace CPE200Lab1
     public class RPNCalculatorEngine : CalculatorEngine
     {
         /// <summary>
-        /// Split string from display to calculate and put into stack
+        /// Split string from display to put into stack and calcuate 
         /// </summary>
         /// <param name="str">string from display</param>
         /// <returns>result of calculator</returns>
